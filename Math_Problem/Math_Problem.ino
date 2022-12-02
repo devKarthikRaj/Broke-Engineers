@@ -26,69 +26,40 @@ void setup() {
 }
 
 void loop() {
-
-/* Useless
-
-  int anskey[10] = {4, 9, 24, 30, 74, 47, 8, 144, 73, 7}
-  int stop = 0;
-  int i = 0;
-
-  ans0 = 4;   // 1 + 3
-  ans1 = 9;   // 3 * 3
-  ans2 = 24;  // 144 / 6
-  ans3 = 30;  // 23 + 7
-  ans4 = 74;  // 81 - 7
-  ans5 = 47;  // 84 - 37
-  ans6 = 8;   // 56 / 7 
-  ans7 = 144; // 12 * 12
-  ans8 = 73;  // 46  + 27
-  ans9 = 7;   // 21 / 3
-*/
-
-  /*
-  // Get key value if pressed
-  char customKey = customKeypad.getKey();
- 
-  if (customKey) {
-    // Print key value to serial monitor
-    Serial.println(customKey);
+  
+  Serial.println(math_problem());
   }
-  */
 
+bool math_problem(){
+
+  //Randomly choose questions
   i = random(1,10);
 
-  String input_ans = "0";
-  
   if(i == 1){
-    //Serial.setCursor(2,0);
     Serial.println("1 + 3");
 
     ans = "4";
   }
 
   else if(i == 2){
-    //Serial.setCursor(2,0);
     Serial.println("3 * 3");
     
     ans = "9"; 
   }
 
   else if(i == 3){
-    //Serial.setCursor(2,0);
     Serial.print("144 / 6");
       
     ans = "24";
   }
 
   else if(i == 4){
-    //Serial.setCursor(2,0);
     Serial.println("23 + 7");
     
     ans = "30";
   }
 
   else if(i == 5){
-    //Serial.setCursor(2,0);
     Serial.println("81 - 7");
     
     ans = "74";
@@ -128,6 +99,16 @@ void loop() {
     
     ans = "7";
   }
+
+  // Get key value if pressed
+  char customKey = customKeypad.getKey();
+
+  if(String(customKey) == ans) {
+    return true;
+  } else {
+    return false;
+  }
+
 
 /*
   while(retry == 0){
