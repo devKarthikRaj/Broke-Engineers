@@ -16,9 +16,8 @@ byte pin_column[COLUMN_NUM] = {16, 4, 0, 2};   // GIOP16, GIOP4, GIOP0, GIOP2
 Keypad customKeypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
 
 int i = 0;
-int retry = 0;
 String ans = "0";
-String input_ans  = "0";
+String qn;
 
 void setup() {
   Serial.begin(115200);
@@ -26,107 +25,70 @@ void setup() {
 }
 
 void loop() {
-  
+  delay(3000);
   Serial.println(math_problem());
-  }
+  while(1);
+}
 
-bool math_problem(){
+String math_problem(){
 
   //Randomly choose questions
   i = random(1,10);
 
   if(i == 1){
-    Serial.println("1 + 3");
-
+    qn = "1 + 3";
     ans = "4";
   }
 
   else if(i == 2){
-    Serial.println("3 * 3");
-    
+    qn = "3 * 3";
     ans = "9"; 
   }
 
   else if(i == 3){
-    Serial.print("144 / 6");
-      
-    ans = "24";
+    qn = "3";
+    ans = "3";
   }
 
   else if(i == 4){
-    Serial.println("23 + 7");
-    
-    ans = "30";
+    qn = "4";
+    ans = "4";
   }
 
   else if(i == 5){
-    Serial.println("81 - 7");
-    
-    ans = "74";
+    qn = "5";
+    ans = "5";
   }
 
   else if(i == 6){
-    //Serial.setCursor(2,0);
-    Serial.println("84 - 37");
-    
-    ans = "47";
+    qn = "6";
+    ans = "6";
   }
  
   else if(i == 7){
     //Serial.setCursor(2,0);
-    Serial.println("56 / 7");
+    qn = "56 / 7";
     
     ans = "8";
   }
 
   else if(i == 8){
-    //Serial.setCursor(2,0);
-    Serial.println("12 * 12");
-    
-    ans = "144";
+    qn = "8";
+    ans = "8";
   }
 
   else if(i == 9){
-    //Serial.setCursor(2,0);
-    Serial.println("46 + 27");
-    
-    ans = "73";
+    qn = "9";
+    ans = "9";
   }
 
   else if(i == 10){
-    //Serial.setCursor(2,0);
-    Serial.println("21 / 3");
+    qn = "21 / 3";
     
     ans = "7";
   }
 
-  // Get key value if pressed
-  char customKey = customKeypad.getKey();
+  Serial.println(qn);
 
-  if(String(customKey) == ans) {
-    return true;
-  } else {
-    return false;
-  }
-
-
-/*
-  while(retry == 0){
-
-    if(ans == input_ans){
-      //Serial.setCursor(2,0);
-      Serial.println("Correct!");
-      delay(1000);
-      retry = 1;
-      
-      //stop buzzer idk
-    }
-
-    else{
-      //Serial.setCursor(2,0);
-      Serial.println("Wrong! Try again.");
-      delay(1000);
-    }
-
-*/
+  return ans;
 }
