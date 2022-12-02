@@ -14,8 +14,8 @@ char hexaKeys[ROWS][COLS] = {
 };
  
 // Connections to Arduino
-byte rowPins[ROWS] = {9, 8, 7, 6};
-byte colPins[COLS] = {5, 4, 3, 2};
+byte rowPins[ROWS] = {13, 12, 14, 27};
+byte colPins[COLS] = {26, 25, 33, 32};
  
 // Create keypad object
 Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
