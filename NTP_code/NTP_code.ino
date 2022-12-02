@@ -7,8 +7,8 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2); 
  
 #define EAP_ANONYMOUS_IDENTITY  ""
-#define EAP_IDENTITY  "SINH0004@student.main.ntu.edu.sg"
-#define EAP_PASSWORD  "rai3002#SID"
+#define EAP_IDENTITY  " "
+#define EAP_PASSWORD  " "
 
 const char *ssid     = "Siddhangana's Galaxy S20+ 5G";
 // int wifi_reconnect_counter = 0;
@@ -120,5 +120,5 @@ void loop() {
     last_second = second_;
  
   }
-  delay(2000);
+  delay(1000);
 }
