@@ -5,7 +5,6 @@ String qn = "0";
 
 void setup() {
   Serial.begin(115200);
-
 }
 
 void loop() {
@@ -65,7 +64,8 @@ String math_problem(){
   }
 
   //Print the Question
-  Serial.println(qn);
+  //lcd.setCursor(2,0);
+  Serial.print(qn);
   //Return answer to Question
   return ans;
 }
